@@ -1,0 +1,27 @@
+#
+# Use a QR code scanner to get the serial number for each device.
+# Set the ignore param if you do not want to broadcast messages.
+#
+device_parameters:
+  - name: 'Front Door'
+    type: 'door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456
+  - name: 'Main Garage Door'
+    type: 'door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456
+  - name: 'Side Garage Door'
+    type: 'door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456
+  - name: 'Mail Box'
+    type: 'mailbox_sensor' 
+    serial_number: DEADBEEF1234567890DEADBEEF123456
+  - name: 'Garage Door'
+    type: 'garage_door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456
+  - name: 'Family Room Door'
+    type: 'door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456 
+    ignore: True
+  - name: 'Test Sensor'
+    type: 'garage_door_sensor'
+    serial_number: DEADBEEF1234567890DEADBEEF123456
