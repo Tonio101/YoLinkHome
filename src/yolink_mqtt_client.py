@@ -48,20 +48,24 @@ class YoLinkMQTTClient(object):
         """
         log.debug(msg.topic, msg.payload)
 
-        payload = json.loads(msg.payload.decode("utf-8"))
-        log.debug(payload)
-    
-        event = payload['event']
-        deviceId = payload['deviceId']
-        state = payload['data']['state']
-        device = self.device_hash[deviceId]
+        try:
+            payload = json.loads(msg.payload.decode("utf-8"))
+            log.debug(payload)
 
-        log.info("Event:{0} Device:{1} State:{2}".format(event,
-            device.get_name(), state))
-        
-        if ('open' in state and not device.get_ignore()):
-            self.google_home_client.send_message_to_device(device_name="Kitchen display",
-                message=device.get_google_home_message())
+            event = payload['event']
+            deviceId = payload['deviceId']
+            state = payload['data']['state']
+            device = self.device_hash[deviceId]
+
+            log.info("Event:{0} Device:{1} State:{2}".format(event,
+                device.get_name(), state))
+
+            if ('open' in state and not device.get_ignore()):
+                self.google_home_client.send_message_to_device(device_name="Kitchen display",
+                    message=device.get_google_home_message())
+        except:
+            error = sys.exc_info()[0]
+            log.info("Error reading payload: %s" % error)
 
     def on_connect(self, client, userdata, flags, rc):
         """
