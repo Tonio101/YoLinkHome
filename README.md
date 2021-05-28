@@ -75,3 +75,8 @@ Execute the python script providing your YoLink account API keys:
                                --csseckey {CSSecKey} \
                                --topic {CSName}/report \
                                --file src/yolink_data.yml
+```
+
+## YoLink Cron Job
+
+Add a cron job to start the process on startup. Use `start_yolinkhome.sh` for the cron job entry
