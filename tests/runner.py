@@ -1,5 +1,4 @@
 import sys
-sys.path.append('../src')
 import yaml
 
 from assistant_relay_client import AssistantRelayClient
