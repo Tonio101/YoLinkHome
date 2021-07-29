@@ -77,6 +77,42 @@ Execute the python script providing your YoLink account API keys:
                                --file src/yolink_data.yml
 ```
 
+Populate the yolink credentials in `start_yolinkhome.sh`.<br/>
+Then simply execute the script.
+
 ## YoLink Cron Job
 
-Add a cron job to start the process on startup. Use `start_yolinkhome.sh` for the cron job entry
+Add a cron job to start the process on startup.<br/>
+Use `start_yolinkhome.sh` for the cron job entry.
+Or even better, create a systemd service.
+
+## YoLink Systemd Service
+
+[systemd service documentation](https://www.raspberrypi.org/documentation/linux/usage/systemd.md)
+
+Modify the `yolinkhome.service` file.<br/>
+
+Copy this file into `/etc/systemd/system` as root.<br/>
+
+```bash
+sudo cp yolinkhome.service /etc/systemd/system/yolinkhome.service
+```
+
+Inform `systemd` about the new service.<br/>
+
+```bash
+sudo systemctl daemon-reload
+```
+
+Start the service.<br/>
+
+```bash
+sudo systemctl start yolinkhome.service
+```
+
+When you are happy with the results, enable the service.<br/>
+It should now start automatically at startup.
+
+```bash
+sudo systemctl enable
+```

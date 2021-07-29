@@ -1,0 +1,14 @@
+[Unit]
+Description=YoLink Home Service
+After=network.service
+
+[Service]
+ExecStart=<YOUR_PATH>/YoLinkHome/start_yolinkhome.sh
+WorkingDirectory=<YOUR_PATH>/YoLinkHome
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=<USER>
+
+[Install]
+WantedBy=multi-user.target
