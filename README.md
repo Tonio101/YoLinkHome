@@ -1,3 +1,5 @@
+[Deprecated] Use YoLink API V2: https://github.com/Tonio101/YoLinkAPI_V2
+
 # YoLinkHome
 
 Simple script that will send a broadcast message to your Google device(s)<br/>
